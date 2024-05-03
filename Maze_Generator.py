@@ -2,6 +2,7 @@ import pygame
 import random
 
 from pygame import Vector2
+from random  import randint
 from Settings import *
 
 
@@ -15,12 +16,14 @@ class Maze:
         for row in range(self.maze_y):
             row_to_add = []
             for row_fill in range(self.maze_x):
-                row_to_add.append(random.randint(0, 1))
+                row_to_add.append(randint(0, 1))
             self.maze.append(row_to_add)
         self.maze_init()
 
     def maze_init(self):
-        print(self.maze)
+        self.maze[randint(0,  self.maze_y)][randint(0, self.maze_x)] = 2
+        self.maze[randint(0, self.maze_y)][randint(0, self.maze_x)] = 3
+        #print(self.maze)
 
     def draw(self,  screen):
         for i, row in enumerate(self.maze):
